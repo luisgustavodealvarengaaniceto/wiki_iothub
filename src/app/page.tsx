@@ -93,7 +93,7 @@ export default async function Home() {
                       key={page.id}
                       icon={equipment.icon}
                       title={page.title}
-                      description={page.description}
+                      description={page.description || ""}
                       href={`/docs/${page.slug}`}
                       color="blue"
                     />
@@ -109,9 +109,9 @@ export default async function Home() {
                   {pagesByEquipment["sem-equipamento"].map((page) => (
                     <Card
                       key={page.id}
-                      icon={page.icon}
+                      icon={page.icon || "mdi:file-outline"}
                       title={page.title}
-                      description={page.description}
+                      description={page.description || ""}
                       href={`/docs/${page.slug}`}
                       color="blue"
                     />

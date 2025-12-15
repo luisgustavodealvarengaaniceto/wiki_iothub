@@ -40,7 +40,6 @@ export async function POST(
         slug: newSlug,
         description: originalPage.description,
         icon: originalPage.icon,
-        content: originalPage.content,
         equipmentId: equipmentId || null,
         isPublished: false, // Começa como rascunho
         order: originalPage.order,
@@ -58,7 +57,6 @@ export async function POST(
               type: block.type,
               order: block.order,
               data: block.data,
-              title: block.title,
             },
           })
         )

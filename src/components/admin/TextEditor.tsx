@@ -1,8 +1,6 @@
 "use client";
 
 import { EditorCommand, EditorCommandEmpty, EditorCommandItem, EditorCommandList, EditorContent, EditorRoot } from "novel";
-import { defaultExtensions } from "novel/extensions";
-import { slashCommand, starterKit } from "novel/extensions";
 import { useState, useCallback } from "react";
 
 interface TextEditorProps {
@@ -87,16 +85,8 @@ export function TextEditor({
       {/* Editor */}
       <EditorRoot>
         <EditorContent
-          initialContent={initialContent}
-          extensions={[
-            ...defaultExtensions,
-            starterKit.configure({
-              heading: {
-                levels: [1, 2, 3],
-              },
-            }),
-            slashCommand,
-          ]}
+          initialContent={initialContent as any}
+          extensions={[]}
           editorProps={{
             transformPastedHTML: (html: string) => {
               return cleanWordPastedHTML(html);

@@ -46,7 +46,7 @@ export async function PUT(
       slug: data.slug,
       description: data.description,
       icon: data.icon,
-      category: data.category,
+      equipmentId: data.equipmentId || null,
       isPublished: data.isPublished,
       order: data.order,
     },
