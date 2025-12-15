@@ -1,0 +1,109 @@
+/* Estilos para o Editor Tiptap com Tabelas e Listas */
+
+.tiptap-editor {
+  @apply min-h-[300px];
+}
+
+/* Tabelas no Editor */
+.tiptap-editor table {
+  @apply border-collapse table-auto w-full border border-slate-300 my-4;
+}
+
+.tiptap-editor th {
+  @apply border border-slate-300 bg-slate-100 font-bold text-left px-4 py-2 text-slate-900;
+}
+
+.tiptap-editor td {
+  @apply border border-slate-300 px-4 py-2 text-slate-700;
+}
+
+.tiptap-editor tr {
+  @apply border border-slate-300;
+}
+
+/* Célula selecionada */
+.tiptap-editor .selectedCell {
+  @apply bg-blue-100 border-blue-400;
+}
+
+/* Task Lists (Checklists) */
+.tiptap-editor ul[data-type="taskList"] {
+  @apply list-none pl-0 space-y-2;
+}
+
+.tiptap-editor ul[data-type="taskList"] li {
+  @apply flex items-start gap-2;
+}
+
+.tiptap-editor ul[data-type="taskList"] li label {
+  @apply flex-shrink-0;
+}
+
+.tiptap-editor ul[data-type="taskList"] li input[type="checkbox"] {
+  @apply w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer;
+}
+
+.tiptap-editor ul[data-type="taskList"] li div {
+  @apply flex-1;
+}
+
+.tiptap-editor ul[data-type="taskList"] li[data-checked="true"] > div {
+  @apply line-through text-slate-500;
+}
+
+/* Code Blocks */
+.tiptap-editor pre {
+  @apply bg-slate-900 text-white rounded-lg p-4 my-4 overflow-x-auto;
+}
+
+.tiptap-editor pre code {
+  @apply text-sm font-mono;
+}
+
+/* Links */
+.tiptap-editor a {
+  @apply text-blue-600 underline hover:text-blue-700 cursor-pointer;
+}
+
+/* Listas normais */
+.tiptap-editor ul:not([data-type="taskList"]) {
+  @apply list-disc pl-6 my-2 space-y-1;
+}
+
+.tiptap-editor ol {
+  @apply list-decimal pl-6 my-2 space-y-1;
+}
+
+/* Citações */
+.tiptap-editor blockquote {
+  @apply border-l-4 border-blue-500 pl-4 py-2 italic text-slate-600 my-4;
+}
+
+/* Headings */
+.tiptap-editor h1 {
+  @apply text-3xl font-bold text-slate-900 mt-6 mb-4;
+}
+
+.tiptap-editor h2 {
+  @apply text-2xl font-bold text-slate-900 mt-5 mb-3;
+}
+
+.tiptap-editor h3 {
+  @apply text-xl font-bold text-slate-900 mt-4 mb-2;
+}
+
+/* Parágrafos */
+.tiptap-editor p {
+  @apply text-slate-700 leading-relaxed my-2;
+}
+
+/* Placeholder */
+.tiptap-editor .is-editor-empty:first-child::before {
+  @apply text-slate-400 float-left h-0 pointer-events-none;
+  content: attr(data-placeholder);
+}
+
+/* Resize handle para tabelas */
+.tiptap-editor .column-resize-handle {
+  @apply absolute right-[-2px] top-0 bottom-0 w-1 bg-blue-400 opacity-0 hover:opacity-100 cursor-col-resize;
+}

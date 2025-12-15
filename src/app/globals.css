@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply text-slate-900 border-slate-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-slate-900;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +44,274 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos do Editor Tiptap */
+.tiptap-editor {
+  min-height: 300px;
+}
+
+.tiptap-editor table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  margin: 1rem 0;
+}
+
+.tiptap-editor th {
+  border: 1px solid #cbd5e1;
+  background-color: #f1f5f9;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  color: #0f172a;
+}
+
+.tiptap-editor td {
+  border: 1px solid #cbd5e1;
+  padding: 0.5rem 1rem;
+  color: #334155;
+}
+
+.tiptap-editor tr {
+  border: 1px solid #cbd5e1;
+}
+
+.tiptap-editor .selectedCell {
+  background-color: #dbeafe;
+  border-color: #60a5fa;
+}
+
+.tiptap-editor ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.tiptap-editor ul[data-type="taskList"] li {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.tiptap-editor ul[data-type="taskList"] li label {
+  flex-shrink: 0;
+}
+
+.tiptap-editor ul[data-type="taskList"] li input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: 1px solid #cbd5e1;
+  color: #2563eb;
+}
+
+.tiptap-editor ul[data-type="taskList"] li input[type="checkbox"]:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.tiptap-editor ul[data-type="taskList"] li div {
+  flex: 1;
+}
+
+.tiptap-editor ul[data-type="taskList"] li[data-checked="true"] > div {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.tiptap-editor pre {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.tiptap-editor pre code {
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.tiptap-editor a {
+  color: #2563eb;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tiptap-editor a:hover {
+  color: #1d4ed8;
+}
+
+.tiptap-editor ul:not([data-type="taskList"]) {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.tiptap-editor ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.tiptap-editor blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-style: italic;
+  color: #475569;
+  margin: 1rem 0;
+}
+
+.tiptap-editor h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tiptap-editor h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0f172a;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap-editor h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0f172a;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap-editor p {
+  color: #334155;
+  line-height: 1.625;
+  margin: 0.5rem 0;
+}
+
+.tiptap-editor .ProseMirror-focused {
+  outline: none;
+}
+
+.tiptap-editor .is-editor-empty:first-child::before {
+  color: #94a3b8;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap-editor .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #60a5fa;
+  opacity: 0;
+  cursor: col-resize;
+}
+
+.tiptap-editor .column-resize-handle:hover {
+  opacity: 1;
+}
+
+/* ============================================
+   NORMALIZADOR DE PDF PARA WEB
+   Remove estilos de "leitor de PDF" que quebram 
+   a imersão do site quando importando manuais
+   ============================================ */
+
+/* Remove fundo cinza e bordas do container do PDF */
+#page-container,
+.page-container {
+  background-color: transparent !important;
+  background-image: none !important;
+  overflow: visible !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove aparência de "folha de papel A4" com sombra */
+.pf,
+[class*="page-frame"],
+[id*="page"] {
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  background-color: transparent !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  position: relative !important;
+  page-break-after: auto !important;
+  page-break-before: auto !important;
+}
+
+/* Remove menu lateral cinza (sidebar) */
+#sidebar,
+.sidebar,
+nav[id*="nav"],
+.navigation {
+  display: none !important;
+}
+
+/* Remove transformações e zoom que quebram responsividade */
+.pc,
+[class*="content"] {
+  transform: none !important;
+  transform-origin: top left !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Força cor escura no texto do PDF (exceto na hero section) */
+.c,
+.t {
+  color: #0f172a !important; /* slate-900 */
+}
+
+/* Não force cor em spans e parágrafos gerais para preservar estilos da hero section */
+
+/* Remove posicionamento absoluto que quebra layout */
+div[style*="position: absolute"],
+span[style*="position: absolute"],
+p[style*="position: absolute"] {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+/* Garante imagens responsivas */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Normaliza tabelas */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+td,
+th {
+  padding: 8px !important;
+  border: 1px solid #d1d5db !important;
 }
